@@ -9,16 +9,12 @@ This project is licensed under the MIT License.
 ## Prerequisites
 - Solidity ^0.8.20
 - Node Package Manager (NPM)
+- Deploy the consumercontract in: https://github.com/janiapro/EAforYT
 
 ## Installation
-1. Clone the repository: git clone [repository-link]
-2. Navigate to the project directory and install the dependencies: cd [project-directory]
+1. Clone the repository: git clone https://github.com/janiapro/VIDAO
+2. Navigate to the project directory and install the dependencies
 npm install
-
-## Contract Address
-Please deploy the contract to a network (e.g., Rinkeby, Mainnet) and replace the following with your contract address:
-[contract-address]
-
 
 ## Features
 - **Minting NFTs with Subscriber Count**: Users can mint NFTs that have a unique subscriber count, which is fetched from an external source.
@@ -27,7 +23,7 @@ Please deploy the contract to a network (e.g., Rinkeby, Mainnet) and replace the
 ## Functions
 
 ### `fetchSubscriberCount(address _oracle, string memory _jobId, string memory chid)`
-Fetches the subscriber count from the external source.
+Fetches the subscriber count from: https://github.com/janiapro/EAforYT/blob/main/Contracts/ClientContract.sol
 
 ### `safeMint(address to, uint256 tokenId)`
 Mints a new token to the given address with the fetched subscriber count as metadata.
@@ -38,7 +34,8 @@ Constructs the token URI with the given subscriber count.
 ## Interfaces
 
 ### IConsumerContract
-An interface for the consumer contract to request and retrieve subscriber count data.
+An interface for the consumer contract to request and retrieve subscriber count data:
+https://github.com/janiapro/EAforYT/blob/main/Contracts/ClientContract.sol
 
 ## Getting Started
 To mint your VIDAO NFTs with subscriber count metadata:
