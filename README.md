@@ -1,66 +1,58 @@
-## Foundry
+# VIDAO NFT Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Description
+The VIDAO NFT contract is an Ethereum-based smart contract that leverages the ERC721 standard for non-fungible tokens (NFTs). This contract is designed to mint NFTs with a unique subscriber count as metadata, fetched from an external source via an adapter. It uses OpenZeppelin's ERC721 and ERC721URIStorage smart contracts for standardized NFT functionality and metadata handling.
 
-Foundry consists of:
+## License
+This project is licensed under the MIT License.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Prerequisites
+- Solidity ^0.8.20
+- Node Package Manager (NPM)
 
-## Documentation
+## Installation
+1. Clone the repository: git clone [repository-link]
+2. Navigate to the project directory and install the dependencies: cd [project-directory]
+npm install
 
-https://book.getfoundry.sh/
+## Contract Address
+Please deploy the contract to a network (e.g., Rinkeby, Mainnet) and replace the following with your contract address:
+[contract-address]
 
-## Usage
 
-### Build
+## Features
+- **Minting NFTs with Subscriber Count**: Users can mint NFTs that have a unique subscriber count, which is fetched from an external source.
+- **External Adapter Integration**: Integration with an external adapter to fetch the latest subscriber count.
 
-```shell
-$ forge build
-```
+## Functions
 
-### Test
+### `fetchSubscriberCount(address _oracle, string memory _jobId, string memory chid)`
+Fetches the subscriber count from the external source.
 
-```shell
-$ forge test
-```
+### `safeMint(address to, uint256 tokenId)`
+Mints a new token to the given address with the fetched subscriber count as metadata.
 
-### Format
+### `constructTokenURI(string memory subscriberCount)`
+Constructs the token URI with the given subscriber count.
 
-```shell
-$ forge fmt
-```
+## Interfaces
 
-### Gas Snapshots
+### IConsumerContract
+An interface for the consumer contract to request and retrieve subscriber count data.
 
-```shell
-$ forge snapshot
-```
+## Getting Started
+To mint your VIDAO NFTs with subscriber count metadata:
+1. Ensure you have the required prerequisites installed.
+2. Deploy the contract to your preferred Ethereum network.
+3. Use the `fetchSubscriberCount` function to fetch the latest count.
+4. Mint your NFT using the `safeMint` function.
 
-### Anvil
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your suggested changes.
 
-```shell
-$ anvil
-```
+## Questions or Issues
+If you encounter any issues or have questions, please file an issue in the repository's issue tracker.
 
-### Deploy
+---
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+This README provides a basic overview of your VIDAO NFT contract functionalities and setup. Make sure to replace placeholders such as `[repository-link]` and `[project-directory]` with your specific details. Additionally, provide the actual deployed contract address in place of `[contract-address]` after deployment.
